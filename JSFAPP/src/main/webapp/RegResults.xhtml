@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="title">Results From Registration </ui:define>
+    <ui:define name="content">
+                                <f:view>
+                                    <h:form id="formId">
+                                            <table>
+                                            <tr>
+                                                <td>#{msg.name} : </td>
+                                                <td>#{userReg.name}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.password} : </td>
+                                                <td>#{userReg.password}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.birth_date} : </td>
+                                                <td>#{userReg.birthdate}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.email} : </td>
+                                                <td>#{userReg.email}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.credit_card_number} : </td>
+                                                <td>#{userReg.creditCardNumber}</td>
+                                            </tr>
+                                            
+                                        </table>
+                                        
+                                    </h:form>
+                                </f:view>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+<ui:composition template="/templates/template.xhtml">
+    <ui:param name="dir" value="#{lang.direction}"/>
+    <ui:define name="title">Registration Form </ui:define>
+    <ui:define name="content">
+                                <f:view>
+                                    <h:form>
+
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <h:commandButton value="#{msg.arabic}" immediate="true" action="#{lang.changeLanguage('ar')}"/> 
+                                                </td>
+                                               <td>
+                                                   <h:commandButton value="#{msg.english}" immediate="true" action="#{lang.changeLanguage('en')}"/> 
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.name} : </td>
+                                                <td><h:inputText label="mskdf" value="#{userReg.name}" id="name" required="true" requiredMessage=""/>
+                                        
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.password} : </td>
+                                                <td><h:inputText label="#{msg.password}" value="#{userReg.password}" id="password">
+                                                        <f:validateLength minimum="8"/>
+                                                     
+                                                    </h:inputText>
+                                                    <br/>
+                                                     <h:message style="color: red" for="password"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.birth_date} : </td>
+                                                <td><h:inputText label="#{msg.birth_date}" value="#{userReg.birthdate}" id="birthdate">
+                                                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                                                        
+                                                    </h:inputText>
+                                                 <br/>
+                                                     <h:message style="color: red" for="birthdate"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.email} : </td>
+                                                <td>
+                                                    <h:inputText label="#{msg.email}" value="#{userReg.email}" id="email">
+                                                        <f:validator validatorId="emailValidator"/>
+                                                    </h:inputText>
+                                                 <br/>
+                                                     <h:message style="color: red" for="email"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#{msg.credit_card_number} : </td>
+                                                <td>
+                                                    <h:inputText label="#{msg.credit_card_number}" value="#{userReg.creditCardNumber}" id="creditcardnumber">
+                                                        <f:converter converterId="ccConverter"/>
+                                                       
+                                                    </h:inputText>
+                                                    <br/>
+                                                     <h:message style="color: red" for="creditcardnumber"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p><h:commandButton  value="#{msg.register}" action="RegResults">
+                                                        </h:commandButton>
+                                                    </p> </td>
+                                                <td><p>
+                                                        <h:commandButton value="#{msg.cancel}" action ="Home" immediate="true">
+                                                        </h:commandButton></p></td>
+                                            </tr>
+                                        </table>
+                                    </h:form>
+                                </f:view>
+    </ui:define>
+</ui:composition>
+</html>

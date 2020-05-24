@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:composition >
+
+        <h:form>
+            <table>
+                <tr>
+                    <td>Name : </td>
+                    <td><h:inputText value="#{username}" id="name" validator="#{user.validateName}">
+                            <f:ajax event="blur" execute="@this" render="nameError"/>
+                        </h:inputText></td>
+                    <h:message for="name" id="nameError" style="color: red"/>
+                </tr>
+                <tr>
+                    <td>Password : </td>
+                    <td><h:inputText value="#{password}" id="password"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        #{''}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><h:commandButton  value="Login" action="welcome"/>
+
+            </p>  
+                    </td>
+                     <td>
+                        <p><h:commandButton value="Ajax">
+                    <f:ajax execute="name" render="out"/>
+                </h:commandButton></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                              <h3><h:outputText id="out" value="#{user.greeting}"/></h3>
+                    </td>
+                </tr>
+            </table>
+  
+        </h:form>
+
+    </ui:composition>
+</html>

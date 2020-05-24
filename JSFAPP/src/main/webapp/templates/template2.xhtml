@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Catalog Responsive Template by templatemo</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/offcanvas/offcanvas.css" rel="stylesheet"/>
+    <link href="templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <ui:insert name="style"></ui:insert>
+    <ui:insert name="script"></ui:insert>
+</h:head>
+<h:body dir="#{dir}">
+    <header>
+
+        <ui:include src="/pieces/Header.xhtml"/>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ui:include src="/pieces/DefaultMenue.xhtml"/>
+
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </header>
+    <div class="container" id="home">
+    <div class="row row-offcanvas row-offcanvas-left">
+    <div class="col col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
+    <div class="sidebar-nav">
+        <ui:include src="/pieces/SideBar.xhtml"/>
+
+    </div> <!-- col sidebar -->
+
+    <div class="col col-xs-12 col-sm-9">
+        <p class="pull-left visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+
+        <!--<section class="row" id="website_templates">-->
+        <div class="row">
+
+
+
+
+            <section class="row" id="flash_templates">
+                <h3><ui:insert name="title">Default Title </ui:insert></h3>
+                <ui:insert name="content">Default Content </ui:insert>
+
+
+            </section> <!-- flash gallery -->
+
+        </div>  <!-- row -->
+    </div> <!-- container -->
+    <footer class="container">
+        <ui:include src="/pieces/Footer.xhtml"/>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/offcanvas.js"></script>
+    <!--
+    http://masonry.desandro.com/
+    http://desandro.mit-license.org/
+    http://stackoverflow.com/questions/17767130/masonry-js-error-uncaught-typeerror-object-object-object-has-no-method-imag
+    Align items in center: https://github.com/desandro/isotope/issues/20
+    Hiding text overflow: http://stackoverflow.com/questions/15308061/how-to-avoid-text-overflow-in-twitter-bootstrap
+    -->
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+<!--    <script>
+
+        $(document).ready(function(){
+            init_masonry();
+        });
+
+        function init_masonry(){
+            var $container = $('.item_container');
+            $container.imagesLoaded( function(){
+                $container.masonry({
+                    itemSelector : '.item',
+                    "gutter": 18,
+                    isFitWidth: true
+                });
+            });
+        }
+
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+
+    </script>-->
+    </div>
+    </div>
+    </div>
+    
+</h:body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="script"> <script>setInterval(function(){document.getElementById('ref').onclick()},3000);</script></ui:define>
+    <ui:define name="title">Vote Results</ui:define>
+    
+    <ui:define name="content">
+                                <f:view >
+                                    <h:form id="formId" prependId="false">
+      
+                                        <table>
+                                            <c:forEach items="#{listBean.categoryList}" var="v">
+                                                <tr>
+                                                    <td>
+                                                        #{v.categoryLabel}
+                                                    </td>
+                                                    <td>
+                                                        #{v.categoryVotes}
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                         
+                                        </table>
+                                        <br/>
+                                        <h:commandButton value="Refresh" action="results" id="ref">
+                                            <f:ajax render="formId" />
+                                        </h:commandButton>
+                                    </h:form>
+                                </f:view>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="style">
+                <style>
+            .in{
+                border: none;
+                border-bottom: 1px solid #666;
+            }
+
+            .ct {   
+                border-collapse:collapse;
+                border:1px solid #000000;
+            }
+
+            .cth {
+                text-align:center;
+                background:none repeat scroll 0 0 #f9e3fb;
+                border-bottom:1px solid #000000;  
+                padding:2px;
+            }
+
+            .ctor {
+                text-align:center;
+                background:none repeat scroll 0 0 #e1adb5;	
+            }
+
+            .cter {
+                text-align:center;
+                background:none repeat scroll 0 0 #c56b7f;
+            }
+            .ctff{
+                text-align:center;
+                background:none repeat scroll 0 0 #f9e3fb;
+                border-bottom:1px solid #000000;  
+                padding:2px;
+            }
+        </style>
+    </ui:define>
+    <ui:define name="title">Customers List</ui:define>
+    <ui:define name="content">
+                                <f:view>
+                                    <h:form id="formId">
+                                    
+                                        <div style="overflow-x:auto;">
+                                            <h:dataTable value="#{custBean.customers}" var="customer"   styleClass = "ct"
+                                                         headerClass = "cth" footerClass = "ctff"
+                                                         rowClasses = "ctor,cter"  >
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custIdHeader}</f:facet>
+                                                    <h:inputText class="in" value="#{customer.id}"  />
+                                                    <f:facet name="footer">
+                                                    
+                                                        <h:outputText value="Add New Customer"></h:outputText>
+                                                    </f:facet>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custNameHeader}</f:facet>
+
+                                                    <h:inputText class="in" value="#{customer.name}" rendered="true"/>
+                                                    <f:facet name="footer"><h:inputText class="in" value="#{custBean.customer.name}"></h:inputText></f:facet>
+
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custPhoneHeader}</f:facet>
+                                                    <h:inputText class="in" value="#{customer.phone}" rendered="true"/>
+                                                    <f:facet name="footer"> <h:inputText class="in" value="#{custBean.customer.phone}"></h:inputText></f:facet>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custAddressHeader}</f:facet>
+                                                    <h:inputText class="in" value="#{customer.address}" rendered="true"/>
+                                                    <f:facet name="footer"><h:inputText  class="in" value="#{custBean.customer.address}"></h:inputText></f:facet>
+
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custCityHeader}</f:facet>
+                                                    <h:inputText class="in" value="#{customer.city}" rendered="true"/>
+                                                    <f:facet name="footer"> <h:inputText class="in" value="#{custBean.customer.city}"></h:inputText></f:facet>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">#{msg.custStateHeader}</f:facet>
+                                                    <h:inputText class="in" value="#{customer.state}" rendered="true"/>
+                                                    <f:facet name="footer"><h:inputText class="in" value="#{custBean.customer.state}"></h:inputText></f:facet>
+                                                </h:column>
+                                                <h:column>
+                                                    <span style="background-color: #f9e3fb"><h:commandButton value="Edit" style="color: blueviolet;border-bottom-width: 1px solid #000000;" action="#{custBean.updateCustomer}"/></span>
+
+                                                    <f:facet name="footer">    <h:commandButton value="Add" action="#{custBean.addCustomer}" /></f:facet>
+                                                </h:column>
+                                                <h:column>
+                                                    <span style="background-color: #f9e3fb"><h:commandButton value="Delete" style="color: blue;border-bottom-width: 1px solid #000000;" action="#{custBean.deleteCustomer}"/></span></h:column>
+                                            </h:dataTable>
+                                        </div>
+                                        <br/>
+                                    </h:form>
+                                </f:view>
+    </ui:define>
+</ui:composition>
+</html>
